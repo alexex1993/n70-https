@@ -1,0 +1,14 @@
+N70Test 0.9.1; HTTPS feature checks
+TLS must be 0x0303 (1.2). Expected errors are test successes.
+WARMUP HEAD /get: establish bearer outside timed test
+Warmup error=0 HTTP=200 TLS=0x0303 BearSSL=0
+
+START Manual cancellation: choose Options > Cancel request
+URL: https://httpbingo.org/delay/10
+PASS Manual cancellation: choose Options > Cancel request | Error=-3 expected=-3 HTTP=0 Bytes=0 Redirects=0
+Attempts=1 Retries=0 NewTCP=0 Reused=1 AddressAttempts=0 RetryAfterMs=-1
+TLS=0x0303 BearSSL=31 I/O=-3 Headers=0 Lines=0 Chunked=0 Gzip=0 WireBytes=0
+Stage: http-read
+Final URL: https://httpbingo.org/delay/10
+
+Summary: 1/1 passed. Cancelled=0

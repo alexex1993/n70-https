@@ -1,0 +1,204 @@
+N70Test 0.9.1; HTTPS feature checks
+TLS must be 0x0303 (1.2). Expected errors are test successes.
+
+START Bearer endpoint without token: HTTP 401
+URL: https://httpbingo.org/bearer
+PASS Bearer endpoint without token: HTTP 401 | Error=0 expected=0 HTTP=401 Bytes=52 Redirects=0
+Attempts=1 Retries=0 NewTCP=1 Reused=0 AddressAttempts=1 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=1 Lines=4 Chunked=1 Gzip=1 WireBytes=70
+Stage: complete
+Final URL: https://httpbingo.org/bearer
+Body preview (up to 2048 bytes):
+{
+  "status_code": 401,
+  "error": "Unauthorized"
+}
+
+
+START Bearer authorization: echoed public test token
+URL: https://httpbingo.org/bearer
+PASS Bearer authorization: echoed public test token | Error=0 expected=0 HTTP=200 Bytes=62 Redirects=0
+Attempts=1 Retries=0 NewTCP=0 Reused=1 AddressAttempts=0 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=1 Lines=4 Chunked=1 Gzip=1 WireBytes=80
+Stage: complete
+Final URL: https://httpbingo.org/bearer
+Body preview (up to 2048 bytes):
+{
+  "authenticated": true,
+  "token": "n70-public-test-080"
+}
+
+
+START Custom header replacement and Accept override
+URL: https://httpbingo.org/headers
+PASS Custom header replacement and Accept override | Error=0 expected=0 HTTP=200 Bytes=584 Redirects=0
+Attempts=1 Retries=0 NewTCP=0 Reused=1 AddressAttempts=0 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=1 Lines=37 Chunked=1 Gzip=1 WireBytes=316
+Stage: complete
+Final URL: https://httpbingo.org/headers
+Body preview (up to 2048 bytes):
+{
+  "headers": {
+    "Accept": [
+      "application/json"
+    ],
+    "Accept-Encoding": [
+      "gzip, identity"
+    ],
+    "Host": [
+      "httpbingo.org"
+    ],
+    "User-Agent": [
+      "N70Https/0.9"
+    ],
+    "Via": [
+      "1.1 fly.io, 1.1 fly.io"
+    ],
+    "X-Forwarded-For": [
+      "92.36.44.184, 66.241.125.232"
+    ],
+    "X-Forwarded-Port": [
+      "443"
+    ],
+    "X-Forwarded-Proto": [
+      "https"
+    ],
+    "X-Forwarded-Ssl": [
+      "on"
+    ],
+    "X-N70-Test": [
+      "custom-header-080"
+    ],
+    "X-Request-Start": [
+      "t=1794852305195466"
+    ]
+  }
+}
+
+
+START Same-origin redirect preserves Bearer
+URL: https://httpbingo.org/redirect-to?url=%2Fbearer&status_code=302
+PASS Same-origin redirect preserves Bearer | Error=0 expected=0 HTTP=200 Bytes=62 Redirects=1
+Attempts=2 Retries=0 NewTCP=1 Reused=1 AddressAttempts=1 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=1 Lines=4 Chunked=1 Gzip=1 WireBytes=80
+Stage: complete
+Final URL: https://httpbingo.org/bearer
+Body preview (up to 2048 bytes):
+{
+  "authenticated": true,
+  "token": "n70-public-test-080"
+}
+
+
+START Gzip: decoded JSON, wire smaller than body
+URL: https://httpbingo.org/gzip
+PASS Gzip: decoded JSON, wire smaller than body | Error=0 expected=0 HTTP=200 Bytes=611 Redirects=0
+Attempts=1 Retries=0 NewTCP=0 Reused=1 AddressAttempts=0 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=1 Lines=39 Chunked=0 Gzip=1 WireBytes=306
+Stage: complete
+Final URL: https://httpbingo.org/gzip
+Body preview (up to 2048 bytes):
+{
+  "args": {},
+  "headers": {
+    "Accept": [
+      "*/*"
+    ],
+    "Accept-Encoding": [
+      "gzip, identity"
+    ],
+    "Host": [
+      "httpbingo.org"
+    ],
+    "User-Agent": [
+      "N70Https/0.9"
+    ],
+    "Via": [
+      "1.1 fly.io, 1.1 fly.io"
+    ],
+    "X-Forwarded-For": [
+      "92.36.44.184, 66.241.125.232"
+    ],
+    "X-Forwarded-Port": [
+      "443"
+    ],
+    "X-Forwarded-Proto": [
+      "https"
+    ],
+    "X-Forwarded-Ssl": [
+      "on"
+    ],
+    "X-Request-Start": [
+      "t=1794852318387955"
+    ]
+  },
+  "method": "GET",
+  "origin": "92.36.44.184",
+  "url": "",
+  "gzipped": true
+}
+
+
+START Gzip plus chunked: 20 JSON lines
+URL: https://httpbingo.org/stream/20
+PASS Gzip plus chunked: 20 JSON lines | Error=0 expected=0 HTTP=200 Bytes=8230 Redirects=0
+Attempts=1 Retries=0 NewTCP=0 Reused=1 AddressAttempts=0 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=1 Lines=20 Chunked=1 Gzip=1 WireBytes=604
+Stage: complete
+Final URL: https://httpbingo.org/stream/20
+Body preview (up to 2048 bytes):
+{"id":0,"args":{},"headers":{"Accept":["*/*"],"Accept-Encoding":["gzip, identity"],"Host":["httpbingo.org"],"User-Agent":["N70Https/0.9"],"Via":["1.1 fly.io, 1.1 fly.io"],"X-Forwarded-For":["92.36.44.184, 66.241.125.232"],"X-Forwarded-Port":["443"],"X-Forwarded-Proto":["https"],"X-Forwarded-Ssl":["on"],"X-Request-Start":["t=1794852319038944"]},"origin":"92.36.44.184","url":"https://httpbingo.org/stream/20"}
+{"id":1,"args":{},"headers":{"Accept":["*/*"],"Accept-Encoding":["gzip, identity"],"Host":["httpbingo.org"],"User-Agent":["N70Https/0.9"],"Via":["1.1 fly.io, 1.1 fly.io"],"X-Forwarded-For":["92.36.44.184, 66.241.125.232"],"X-Forwarded-Port":["443"],"X-Forwarded-Proto":["https"],"X-Forwarded-Ssl":["on"],"X-Request-Start":["t=1794852319038944"]},"origin":"92.36.44.184","url":"https://httpbingo.org/stream/20"}
+{"id":2,"args":{},"headers":{"Accept":["*/*"],"Accept-Encoding":["gzip, identity"],"Host":["httpbingo.org"],"User-Agent":["N70Https/0.9"],"Via":["1.1 fly.io, 1.1 fly.io"],"X-Forwarded-For":["92.36.44.184, 66.241.125.232"],"X-Forwarded-Port":["443"],"X-Forwarded-Proto":["https"],"X-Forwarded-Ssl":["on"],"X-Request-Start":["t=1794852319038944"]},"origin":"92.36.44.184","url":"https://httpbingo.org/stream/20"}
+{"id":3,"args":{},"headers":{"Accept":["*/*"],"Accept-Encoding":["gzip, identity"],"Host":["httpbingo.org"],"User-Agent":["N70Https/0.9"],"Via":["1.1 fly.io, 1.1 fly.io"],"X-Forwarded-For":["92.36.44.184, 66.241.125.232"],"X-Forwarded-Port":["443"],"X-Forwarded-Proto":["https"],"X-Forwarded-Ssl":["on"],"X-Request-Start":["t=1794852319038944"]},"origin":"92.36.44.184","url":"https://httpbingo.org/stream/20"}
+{"id":4,"args":{},"headers":{"Accept":["*/*"],"Accept-Encoding":["gzip, identity"],"Host":["httpbingo.org"],"User-Agent":["N70Https/0.9"],"Via":["1.1 fly.io, 1.1 fly.io"],"X-Forwarded-For":["92.36.44.184, 66.241.125.232"],"X-Forwarded-Port":["443"],"X-Forwarded-Proto":["https"],"X-Forwarded-Ssl":["on"],"X-Request-Start":["t=1794852319038944"]},"origin":"92.36.44.184","url":"https://httpbingo.org/strea
+
+START Gzip decoded limit 32 bytes
+URL: https://httpbingo.org/gzip
+PASS Gzip decoded limit 32 bytes | Error=-9 expected=-9 HTTP=200 Bytes=0 Redirects=0
+Attempts=1 Retries=0 NewTCP=0 Reused=1 AddressAttempts=0 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=1 Lines=0 Chunked=0 Gzip=1 WireBytes=0
+Stage: http-read
+Final URL: https://httpbingo.org/gzip
+
+START Invalid gzip is rejected
+URL: https://httpbingo.org/response-headers?Content-Encoding=gzip
+PASS Invalid gzip is rejected | Error=-20 expected=-20 HTTP=200 Bytes=0 Redirects=0
+Attempts=1 Retries=0 NewTCP=1 Reused=0 AddressAttempts=1 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=1 Lines=0 Chunked=0 Gzip=1 WireBytes=0
+Stage: http-read
+Final URL: https://httpbingo.org/response-headers?Content-Encoding=gzip
+
+START Gzip download: file contains decoded JSON
+URL: https://httpbingo.org/gzip
+PASS Gzip download: file contains decoded JSON | Error=0 expected=0 HTTP=200 Bytes=611 Redirects=0
+Attempts=1 Retries=0 NewTCP=1 Reused=0 AddressAttempts=1 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=0 Lines=0 Chunked=0 Gzip=0 WireBytes=306
+Stage: complete
+Final URL: https://httpbingo.org/gzip
+
+START Reject CRLF header injection
+URL: LOCAL: no network request
+PASS Reject CRLF header injection | Error=-6 expected=-6 HTTP=0 Bytes=0 Redirects=0
+Attempts=0 Retries=0 NewTCP=0 Reused=0 AddressAttempts=0 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=0 Lines=0 Chunked=0 Gzip=0 WireBytes=0
+Stage: complete
+Final URL: 
+
+START Reject reserved Host override
+URL: LOCAL: no network request
+PASS Reject reserved Host override | Error=-6 expected=-6 HTTP=0 Bytes=0 Redirects=0
+Attempts=0 Retries=0 NewTCP=0 Reused=0 AddressAttempts=0 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=0 Lines=0 Chunked=0 Gzip=0 WireBytes=0
+Stage: complete
+Final URL: 
+
+START Reject invalid Bearer token
+URL: LOCAL: no network request
+PASS Reject invalid Bearer token | Error=-6 expected=-6 HTTP=0 Bytes=0 Redirects=0
+Attempts=0 Retries=0 NewTCP=0 Reused=0 AddressAttempts=0 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=0 Lines=0 Chunked=0 Gzip=0 WireBytes=0
+Stage: complete
+Final URL: 
+
+Summary: 12/12 passed. Cancelled=0

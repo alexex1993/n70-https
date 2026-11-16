@@ -1,0 +1,444 @@
+N70Test 0.9.1; HTTPS feature checks
+TLS must be 0x0303 (1.2). Expected errors are test successes.
+
+START PUT JSON echo
+URL: https://httpbingo.org/anything
+PASS PUT JSON echo | Error=0 expected=0 HTTP=200 Bytes=824 Redirects=0
+Attempts=1 Retries=0 NewTCP=1 Reused=0 AddressAttempts=1 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=1 Lines=50 Chunked=1 Gzip=1 WireBytes=451
+Stage: complete
+Final URL: https://httpbingo.org/anything
+Body preview (up to 2048 bytes):
+{
+  "args": {},
+  "headers": {
+    "Accept": [
+      "*/*"
+    ],
+    "Accept-Encoding": [
+      "gzip, identity"
+    ],
+    "Content-Length": [
+      "20"
+    ],
+    "Content-Type": [
+      "application/json"
+    ],
+    "Host": [
+      "httpbingo.org"
+    ],
+    "User-Agent": [
+      "N70Https/0.9"
+    ],
+    "Via": [
+      "1.1 fly.io, 1.1 fly.io"
+    ],
+    "X-Forwarded-For": [
+      "92.36.37.25, 66.241.125.232"
+    ],
+    "X-Forwarded-Port": [
+      "443"
+    ],
+    "X-Forwarded-Proto": [
+      "https"
+    ],
+    "X-Forwarded-Ssl": [
+      "on"
+    ],
+    "X-Request-Start": [
+      "t=1794852390190580"
+    ]
+  },
+  "method": "PUT",
+  "origin": "92.36.37.25",
+  "url": "https://httpbingo.org/anything",
+  "data": "{\"n70\":\"method-090\"}",
+  "files": {},
+  "form": {},
+  "json": {
+    "n70": "method-090"
+  }
+}
+
+
+START PATCH JSON echo
+URL: https://httpbingo.org/anything
+PASS PATCH JSON echo | Error=0 expected=0 HTTP=200 Bytes=826 Redirects=0
+Attempts=1 Retries=0 NewTCP=0 Reused=1 AddressAttempts=0 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=1 Lines=50 Chunked=1 Gzip=1 WireBytes=453
+Stage: complete
+Final URL: https://httpbingo.org/anything
+Body preview (up to 2048 bytes):
+{
+  "args": {},
+  "headers": {
+    "Accept": [
+      "*/*"
+    ],
+    "Accept-Encoding": [
+      "gzip, identity"
+    ],
+    "Content-Length": [
+      "20"
+    ],
+    "Content-Type": [
+      "application/json"
+    ],
+    "Host": [
+      "httpbingo.org"
+    ],
+    "User-Agent": [
+      "N70Https/0.9"
+    ],
+    "Via": [
+      "1.1 fly.io, 1.1 fly.io"
+    ],
+    "X-Forwarded-For": [
+      "92.36.37.25, 66.241.125.232"
+    ],
+    "X-Forwarded-Port": [
+      "443"
+    ],
+    "X-Forwarded-Proto": [
+      "https"
+    ],
+    "X-Forwarded-Ssl": [
+      "on"
+    ],
+    "X-Request-Start": [
+      "t=1794852391230162"
+    ]
+  },
+  "method": "PATCH",
+  "origin": "92.36.37.25",
+  "url": "https://httpbingo.org/anything",
+  "data": "{\"n70\":\"method-090\"}",
+  "files": {},
+  "form": {},
+  "json": {
+    "n70": "method-090"
+  }
+}
+
+
+START DELETE JSON echo
+URL: https://httpbingo.org/anything
+PASS DELETE JSON echo | Error=0 expected=0 HTTP=200 Bytes=827 Redirects=0
+Attempts=1 Retries=0 NewTCP=0 Reused=1 AddressAttempts=0 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=1 Lines=50 Chunked=1 Gzip=1 WireBytes=455
+Stage: complete
+Final URL: https://httpbingo.org/anything
+Body preview (up to 2048 bytes):
+{
+  "args": {},
+  "headers": {
+    "Accept": [
+      "*/*"
+    ],
+    "Accept-Encoding": [
+      "gzip, identity"
+    ],
+    "Content-Length": [
+      "20"
+    ],
+    "Content-Type": [
+      "application/json"
+    ],
+    "Host": [
+      "httpbingo.org"
+    ],
+    "User-Agent": [
+      "N70Https/0.9"
+    ],
+    "Via": [
+      "1.1 fly.io, 1.1 fly.io"
+    ],
+    "X-Forwarded-For": [
+      "92.36.37.25, 66.241.125.232"
+    ],
+    "X-Forwarded-Port": [
+      "443"
+    ],
+    "X-Forwarded-Proto": [
+      "https"
+    ],
+    "X-Forwarded-Ssl": [
+      "on"
+    ],
+    "X-Request-Start": [
+      "t=1794852392181598"
+    ]
+  },
+  "method": "DELETE",
+  "origin": "92.36.37.25",
+  "url": "https://httpbingo.org/anything",
+  "data": "{\"n70\":\"method-090\"}",
+  "files": {},
+  "form": {},
+  "json": {
+    "n70": "method-090"
+  }
+}
+
+WARMUP GET /get completed before keep-alive check
+
+START Keep-alive: second request reuses TLS
+URL: https://httpbingo.org/get
+PASS Keep-alive: second request reuses TLS | Error=0 expected=0 HTTP=200 Bytes=615 Redirects=0
+Attempts=1 Retries=0 NewTCP=0 Reused=1 AddressAttempts=0 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=1 Lines=38 Chunked=1 Gzip=1 WireBytes=338
+Stage: complete
+Final URL: https://httpbingo.org/get
+Body preview (up to 2048 bytes):
+{
+  "args": {},
+  "headers": {
+    "Accept": [
+      "*/*"
+    ],
+    "Accept-Encoding": [
+      "gzip, identity"
+    ],
+    "Host": [
+      "httpbingo.org"
+    ],
+    "User-Agent": [
+      "N70Https/0.9"
+    ],
+    "Via": [
+      "1.1 fly.io, 1.1 fly.io"
+    ],
+    "X-Forwarded-For": [
+      "92.36.37.25, 66.241.125.232"
+    ],
+    "X-Forwarded-Port": [
+      "443"
+    ],
+    "X-Forwarded-Proto": [
+      "https"
+    ],
+    "X-Forwarded-Ssl": [
+      "on"
+    ],
+    "X-Request-Start": [
+      "t=1794852407207651"
+    ]
+  },
+  "method": "GET",
+  "origin": "92.36.37.25",
+  "url": "https://httpbingo.org/get"
+}
+
+
+START Keep-alive disabled: fresh TCP
+URL: https://httpbingo.org/get
+PASS Keep-alive disabled: fresh TCP | Error=0 expected=0 HTTP=200 Bytes=615 Redirects=0
+Attempts=1 Retries=0 NewTCP=1 Reused=0 AddressAttempts=1 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=1 Lines=38 Chunked=1 Gzip=1 WireBytes=338
+Stage: complete
+Final URL: https://httpbingo.org/get
+Body preview (up to 2048 bytes):
+{
+  "args": {},
+  "headers": {
+    "Accept": [
+      "*/*"
+    ],
+    "Accept-Encoding": [
+      "gzip, identity"
+    ],
+    "Host": [
+      "httpbingo.org"
+    ],
+    "User-Agent": [
+      "N70Https/0.9"
+    ],
+    "Via": [
+      "1.1 fly.io, 1.1 fly.io"
+    ],
+    "X-Forwarded-For": [
+      "92.36.37.25, 66.241.125.232"
+    ],
+    "X-Forwarded-Port": [
+      "443"
+    ],
+    "X-Forwarded-Proto": [
+      "https"
+    ],
+    "X-Forwarded-Ssl": [
+      "on"
+    ],
+    "X-Request-Start": [
+      "t=1794852419036184"
+    ]
+  },
+  "method": "GET",
+  "origin": "92.36.37.25",
+  "url": "https://httpbingo.org/get"
+}
+
+
+START DisconnectL then request reconnects
+URL: https://httpbingo.org/get
+PASS DisconnectL then request reconnects | Error=0 expected=0 HTTP=200 Bytes=617 Redirects=0
+Attempts=1 Retries=0 NewTCP=1 Reused=0 AddressAttempts=1 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=1 Lines=38 Chunked=1 Gzip=1 WireBytes=339
+Stage: complete
+Final URL: https://httpbingo.org/get
+Body preview (up to 2048 bytes):
+{
+  "args": {},
+  "headers": {
+    "Accept": [
+      "*/*"
+    ],
+    "Accept-Encoding": [
+      "gzip, identity"
+    ],
+    "Host": [
+      "httpbingo.org"
+    ],
+    "User-Agent": [
+      "N70Https/0.9"
+    ],
+    "Via": [
+      "1.1 fly.io, 1.1 fly.io"
+    ],
+    "X-Forwarded-For": [
+      "92.36.123.41, 66.241.125.232"
+    ],
+    "X-Forwarded-Port": [
+      "443"
+    ],
+    "X-Forwarded-Proto": [
+      "https"
+    ],
+    "X-Forwarded-Ssl": [
+      "on"
+    ],
+    "X-Request-Start": [
+      "t=1794852436830924"
+    ]
+  },
+  "method": "GET",
+  "origin": "92.36.123.41",
+  "url": "https://httpbingo.org/get"
+}
+
+
+START GET 503: two bounded retries
+URL: https://httpbingo.org/status/503
+PASS GET 503: two bounded retries | Error=0 expected=0 HTTP=503 Bytes=0 Redirects=0
+Attempts=3 Retries=2 NewTCP=2 Reused=1 AddressAttempts=2 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=1 Lines=0 Chunked=0 Gzip=0 WireBytes=0
+Stage: complete
+Final URL: https://httpbingo.org/status/503
+
+START GET 503: retries disabled
+URL: https://httpbingo.org/status/503
+PASS GET 503: retries disabled | Error=0 expected=0 HTTP=503 Bytes=0 Redirects=0
+Attempts=1 Retries=0 NewTCP=0 Reused=1 AddressAttempts=0 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=1 Lines=0 Chunked=0 Gzip=0 WireBytes=0
+Stage: complete
+Final URL: https://httpbingo.org/status/503
+
+START POST 503: never repeated
+URL: https://httpbingo.org/status/503
+PASS POST 503: never repeated | Error=0 expected=0 HTTP=503 Bytes=0 Redirects=0
+Attempts=1 Retries=0 NewTCP=0 Reused=1 AddressAttempts=0 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=1 Lines=0 Chunked=0 Gzip=0 WireBytes=0
+Stage: complete
+Final URL: https://httpbingo.org/status/503
+
+START PATCH 503: never repeated
+URL: https://httpbingo.org/status/503
+PASS PATCH 503: never repeated | Error=0 expected=0 HTTP=503 Bytes=0 Redirects=0
+Attempts=1 Retries=0 NewTCP=0 Reused=1 AddressAttempts=0 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=1 Lines=0 Chunked=0 Gzip=0 WireBytes=0
+Stage: complete
+Final URL: https://httpbingo.org/status/503
+
+START PUT 503: no retry by default
+URL: https://httpbingo.org/status/503
+PASS PUT 503: no retry by default | Error=0 expected=0 HTTP=503 Bytes=0 Redirects=0
+Attempts=1 Retries=0 NewTCP=0 Reused=1 AddressAttempts=0 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=1 Lines=0 Chunked=0 Gzip=0 WireBytes=0
+Stage: complete
+Final URL: https://httpbingo.org/status/503
+
+START PUT 503: explicit opt-in, one retry
+URL: https://httpbingo.org/status/503
+PASS PUT 503: explicit opt-in, one retry | Error=0 expected=0 HTTP=503 Bytes=0 Redirects=0
+Attempts=2 Retries=1 NewTCP=1 Reused=1 AddressAttempts=1 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=1 Lines=0 Chunked=0 Gzip=0 WireBytes=0
+Stage: complete
+Final URL: https://httpbingo.org/status/503
+
+START Retry-After seconds parsed from HTTP
+URL: https://httpbingo.org/response-headers?Retry-After=1
+PASS Retry-After seconds parsed from HTTP | Error=0 expected=0 HTTP=200 Bytes=98 Redirects=0
+Attempts=1 Retries=0 NewTCP=0 Reused=1 AddressAttempts=0 RetryAfterMs=1000
+TLS=0x0303 BearSSL=0 I/O=0 Headers=1 Lines=8 Chunked=1 Gzip=1 WireBytes=105
+Stage: complete
+Final URL: https://httpbingo.org/response-headers?Retry-After=1
+Body preview (up to 2048 bytes):
+{
+  "Content-Type": [
+    "application/json; charset=utf-8"
+  ],
+  "Retry-After": [
+    "1"
+  ]
+}
+
+WARMUP GET /get completed before keep-alive check
+
+START Idle timer expiry prevents reuse
+URL: https://httpbingo.org/get
+PASS Idle timer expiry prevents reuse | Error=0 expected=0 HTTP=200 Bytes=617 Redirects=0
+Attempts=1 Retries=0 NewTCP=1 Reused=0 AddressAttempts=1 RetryAfterMs=-1
+TLS=0x0303 BearSSL=0 I/O=0 Headers=1 Lines=38 Chunked=1 Gzip=1 WireBytes=339
+Stage: complete
+Final URL: https://httpbingo.org/get
+Body preview (up to 2048 bytes):
+{
+  "args": {},
+  "headers": {
+    "Accept": [
+      "*/*"
+    ],
+    "Accept-Encoding": [
+      "gzip, identity"
+    ],
+    "Host": [
+      "httpbingo.org"
+    ],
+    "User-Agent": [
+      "N70Https/0.9"
+    ],
+    "Via": [
+      "1.1 fly.io, 1.1 fly.io"
+    ],
+    "X-Forwarded-For": [
+      "92.36.123.41, 66.241.125.232"
+    ],
+    "X-Forwarded-Port": [
+      "443"
+    ],
+    "X-Forwarded-Proto": [
+      "https"
+    ],
+    "X-Forwarded-Ssl": [
+      "on"
+    ],
+    "X-Request-Start": [
+      "t=1794852507632568"
+    ]
+  },
+  "method": "GET",
+  "origin": "92.36.123.41",
+  "url": "https://httpbingo.org/get"
+}
+
+
+Summary: 14/14 passed. Cancelled=0

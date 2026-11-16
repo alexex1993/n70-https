@@ -1,0 +1,24 @@
+N70Test 0.9.1; HTTPS feature checks
+TLS must be 0x0303 (1.2). Expected errors are test successes.
+WARMUP HEAD /get: establish bearer outside timed test
+Warmup error=0 HTTP=200 TLS=0x0303 BearSSL=0
+
+START TCP I/O timeout: 2s, total 5s
+URL: https://192.0.2.1/
+Wall elapsed=2140 ms; tick delta=137; expected ~2000 ms, tolerance 1500 ms
+PASS TCP I/O timeout: 2s, total 5s | Error=-33 expected=-33 HTTP=0 Bytes=0 Redirects=0
+Attempts=1 Retries=0 NewTCP=0 Reused=0 AddressAttempts=1 RetryAfterMs=-1
+TLS=0x0000 BearSSL=0 I/O=0 Headers=0 Lines=0 Chunked=0 Gzip=0 WireBytes=0
+Stage: tcp-connect
+Final URL: https://192.0.2.1/
+
+START TCP total timeout: 2s, I/O 10s
+URL: https://198.51.100.1/
+Wall elapsed=2031 ms; tick delta=130; expected ~2000 ms, tolerance 1500 ms
+PASS TCP total timeout: 2s, I/O 10s | Error=-33 expected=-33 HTTP=0 Bytes=0 Redirects=0
+Attempts=1 Retries=0 NewTCP=0 Reused=0 AddressAttempts=1 RetryAfterMs=-1
+TLS=0x0000 BearSSL=0 I/O=0 Headers=0 Lines=0 Chunked=0 Gzip=0 WireBytes=0
+Stage: tcp-connect
+Final URL: https://198.51.100.1/
+
+Summary: 2/2 passed. Cancelled=0

@@ -1,0 +1,112 @@
+/* Copyright (c) 2004, Nokia. All rights reserved */
+
+//  RESOURCE IDENTIFIER
+NAME HEWB    // 4 letter ID
+
+
+//  INCLUDES
+#include <eikon.rh>
+#include <avkon.rh>
+#include <avkon.rsg>
+#include "N70Test.hrh"
+#include "N70Test.loc"
+
+//  RESOURCE DEFINITIONS
+// -----------------------------------------------------------------------------
+//
+//    Define the resource file signature
+//    This resource should be empty.
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE RSS_SIGNATURE
+    {
+    }
+
+// -----------------------------------------------------------------------------
+//
+//    Default Document Name
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE TBUF r_default_document_name
+    {
+    buf="HEWB";
+    }
+
+// -----------------------------------------------------------------------------
+//
+//    Define default menu and CBA key.
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE EIK_APP_INFO
+    {
+    menubar = r_n70test_menubar;
+    cba = R_AVKON_SOFTKEYS_OPTIONS_EXIT;
+    }
+
+
+// -----------------------------------------------------------------------------
+//
+//   r_n70test_menubar
+//   Menubar for N70Test example
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE MENU_BAR r_n70test_menubar
+    {
+    titles =
+        {
+        MENU_TITLE { menu_pane = r_n70test_menu; }
+        };
+    }
+
+
+// -----------------------------------------------------------------------------
+//
+//   r_n70test_menu
+//   Menu for "Options"
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE MENU_PANE r_n70test_menu
+    {
+    items =
+        {
+        // added the new Options menu command here
+        MENU_ITEM
+                {
+                command = EN70TestCommand1;
+                txt = qtn_hewb_command1;
+                },
+        MENU_ITEM
+                {
+                command = EN70TestTenSites;
+                txt = "Test 10 sites";
+                },
+        MENU_ITEM { command = EN70TestHttpFeatures; txt = "Test new features"; },
+        MENU_ITEM { command = EN70TestApi; txt = "Test API + gzip"; },
+        MENU_ITEM { command = EN70TestClient; txt = "Test client 0.9"; },
+        MENU_ITEM { command = EN70TestTcp; txt = "Test TCP timeout"; },
+        MENU_ITEM { command = EN70TestTimeout; txt = "Test timeout"; },
+        MENU_ITEM { command = EN70TestCancellation; txt = "Test cancellation"; },
+        MENU_ITEM { command = EN70TestCancel; txt = "Cancel request"; },
+        MENU_ITEM
+                {
+                command = EAknSoftkeyExit;
+                txt = qtn_hewb_exit;
+                }
+        };
+    }
+
+// -----------------------------------------------------------------------------
+//
+// Resources for messages.
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE TBUF32 r_hewb_command1_text { buf=qtn_hewb_command1_text; }
+RESOURCE TBUF32 r_hewb_caption_string { buf=qtn_hewb_caption_string; }
+
+// End of File

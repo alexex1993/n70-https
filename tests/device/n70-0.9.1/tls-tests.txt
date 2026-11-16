@@ -1,0 +1,42 @@
+N70Test 0.9.1: ten separate TLS 1.2 connections
+HTTP redirects are recorded, not followed.
+START www.google.com
+www.google.com | PASS | Symbian=0 BearSSL=0 I/O=0 TLS=0x0303 Seconds=12
+Stage: complete
+HTTP/1.0 200 OK
+START www.cloudflare.com
+www.cloudflare.com | PASS | Symbian=0 BearSSL=0 I/O=0 TLS=0x0303 Seconds=18
+Stage: complete
+HTTP/1.1 200 OK
+START www.wikipedia.org
+www.wikipedia.org | PASS | Symbian=0 BearSSL=0 I/O=0 TLS=0x0303 Seconds=9
+Stage: complete
+HTTP/1.1 403 Forbidden
+START www.python.org
+www.python.org | PASS | Symbian=0 BearSSL=0 I/O=0 TLS=0x0303 Seconds=8
+Stage: complete
+HTTP/1.1 200 OK
+START github.com
+github.com | PASS | Symbian=0 BearSSL=0 I/O=0 TLS=0x0303 Seconds=12
+Stage: complete
+HTTP/1.1 200 OK
+START www.microsoft.com
+www.microsoft.com | PASS | Symbian=0 BearSSL=0 I/O=0 TLS=0x0303 Seconds=6
+Stage: complete
+HTTP/1.0 403 Forbidden
+START www.apple.com
+www.apple.com | PASS | Symbian=0 BearSSL=0 I/O=0 TLS=0x0303 Seconds=6
+Stage: complete
+HTTP/1.0 200 OK
+START www.mozilla.org
+www.mozilla.org | PASS | Symbian=0 BearSSL=0 I/O=0 TLS=0x0303 Seconds=11
+Stage: complete
+HTTP/1.1 200 OK
+START www.w3.org
+www.w3.org | PASS | Symbian=0 BearSSL=0 I/O=0 TLS=0x0303 Seconds=16
+Stage: complete
+HTTP/1.1 200 OK
+START letsencrypt.org
+letsencrypt.org | FAIL | Symbian=-25 BearSSL=31 I/O=-25 TLS=0x0303 Seconds=10
+Stage: tls-handshake/http-send
+Summary: 9/10 passed (10 configured).

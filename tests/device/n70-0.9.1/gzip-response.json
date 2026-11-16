@@ -1,0 +1,39 @@
+{
+  "args": {},
+  "headers": {
+    "Accept": [
+      "*/*"
+    ],
+    "Accept-Encoding": [
+      "gzip, identity"
+    ],
+    "Host": [
+      "httpbingo.org"
+    ],
+    "User-Agent": [
+      "N70Https/0.9"
+    ],
+    "Via": [
+      "1.1 fly.io, 1.1 fly.io"
+    ],
+    "X-Forwarded-For": [
+      "92.36.44.184, 66.241.125.232"
+    ],
+    "X-Forwarded-Port": [
+      "443"
+    ],
+    "X-Forwarded-Proto": [
+      "https"
+    ],
+    "X-Forwarded-Ssl": [
+      "on"
+    ],
+    "X-Request-Start": [
+      "t=1794852343555018"
+    ]
+  },
+  "method": "GET",
+  "origin": "92.36.44.184",
+  "url": "",
+  "gzipped": true
+}

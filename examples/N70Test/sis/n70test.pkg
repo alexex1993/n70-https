@@ -1,0 +1,7 @@
+&EN
+#{"N70 HTTPS"},(0x70007121),0,9,1
+(0x101F7960),0,0,0,{"Series60ProductID"}
+"C:\Users\alexnew\Downloads\reps\s60v2-tls1.2\build\sdk\Epoc32\release\thumb\urel\N70Test.app"-"!:\system\apps\N70Test\N70Test.app"
+"C:\Users\alexnew\Downloads\reps\s60v2-tls1.2\build\sdk\Epoc32\Data\z\system\apps\n70test\N70Test.rsc"-"!:\system\apps\N70Test\N70Test.rsc"
+"C:\Users\alexnew\Downloads\reps\s60v2-tls1.2\build\sdk\Epoc32\Data\z\system\apps\n70test\N70Test.aif"-"!:\system\apps\N70Test\N70Test.aif"
+"C:\Users\alexnew\Downloads\reps\s60v2-tls1.2\build\sdk\Epoc32\Data\z\system\apps\n70test\N70Test_caption.rsc"-"!:\system\apps\N70Test\N70Test_caption.rsc"

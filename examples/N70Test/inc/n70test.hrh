@@ -1,0 +1,20 @@
+/* Copyright (c) 2004, Nokia. All rights reserved */
+
+#ifndef __N70TEST_HRH__
+#define __N70TEST_HRH__
+
+// N70Test enumerate command codes
+enum TN70TestIds
+    {
+    EN70TestCommand1 = 1, // start value must not be 0
+    EN70TestTenSites = 2,
+    EN70TestHttpFeatures = 3,
+    EN70TestTimeout = 4,
+    EN70TestCancel = 5,
+    EN70TestCancellation = 6,
+    EN70TestApi = 7,
+    EN70TestTcp = 8,
+    EN70TestClient = 9
+    };
+
+#endif // __N70TEST_HRH__

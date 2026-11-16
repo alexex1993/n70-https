@@ -1,0 +1,4 @@
+interface:
+  display_name: "N70 HTTPS"
+  short_description: "Use TLS 1.2 and HTTPS APIs in Nokia N70 apps"
+  default_prompt: "Use $n70-https to integrate the n70https library into my Nokia N70 application, including worker-thread lifecycle, static linking and device checks."

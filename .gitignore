@@ -1,0 +1,19 @@
+# Local SDK, compiler products, logs and archived workspace debris
+/build/
+/Trash/
+/.Trash/
+/dist/*
+!/dist/.gitkeep
+/vendor/archives/
+/vendor/bearssl-0.6/
+/vendor/zlib-1.4/
+/examples/N70Test/inc/testanchor.h
+**/ABLD.BAT
+**/*.sis
+**/*.SIS
+*.obj
+*.pdb
+*.ilk
+# Real device state must never become installer material or be published.
+/tests/device/**/rng-*.bin
+/tests/device/**/rng-*.lock
